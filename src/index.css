@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark Portfolio Design System with Purple Accents */
+
+@layer base {
+  :root {
+    /* Dark theme colors */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Purple primary colors */
+    --primary: 280 100% 70%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 280 100% 80%;
+
+    --secondary: 240 8% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 8% 8%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 280 80% 60%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 8% 15%;
+    --input: 240 8% 15%;
+    --ring: 280 100% 70%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --glass-bg: 240 10% 8%;
+    --glass-border: 240 8% 20%;
+    --purple-gradient: linear-gradient(135deg, hsl(280 100% 70%), hsl(260 100% 60%));
+    --purple-glow: 0 0 40px hsl(280 100% 70% / 0.3);
+    --card-shadow: 0 8px 32px hsl(240 10% 3.9% / 0.8);
+    --glow-shadow: 0 0 20px hsl(280 100% 70% / 0.5);
+    --backdrop-blur: blur(16px);
+    
+    /* Smooth animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-image: radial-gradient(circle at 25% 25%, hsl(280 100% 70% / 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 75% 75%, hsl(260 100% 60% / 0.1) 0%, transparent 50%);
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    background: hsl(var(--glass-bg) / 0.8);
+    backdrop-filter: var(--backdrop-blur);
+    border: 1px solid hsl(var(--glass-border) / 0.3);
+  }
+
+  /* Purple gradient text */
+  .gradient-text {
+    background: var(--purple-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow effects */
+  .glow {
+    box-shadow: var(--glow-shadow);
+  }
+
+  .purple-glow {
+    box-shadow: var(--purple-glow);
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Pulse glow animation */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse-glow {
+    from { box-shadow: 0 0 20px hsl(280 100% 70% / 0.5); }
+    to { box-shadow: 0 0 40px hsl(280 100% 70% / 0.8); }
+  }
+
+  /* Smooth hover transitions */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-shadow), var(--glow-shadow);
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-glow));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
